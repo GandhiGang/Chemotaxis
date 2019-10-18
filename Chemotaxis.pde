@@ -15,26 +15,27 @@
  		faces[i].move();
  		faces[i].show();
  	}
+ 	ellipse(mouseX, mouseY, 40, 40);
  }  
  class Mover    
  {     
  	int x, y, col;
  	Mover(){
- 		x = 250;
- 		y = 250;
+ 		x = (int)(Math.random()*500);
+ 		y = (int)(Math.random()*500);
  		col = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
  	}
  	void move(){
- 		x+=(int)(Math.random()*5)-2;
- 		y+=(int)(Math.random()*5)-2;
+ 		if(mouseX>x)
+ 			x+=(int)(Math.random()*5);
+ 		else
+ 			x-=(int)(Math.random()*5);
+ 		if(mouseY>y)
+ 			y+=(int)(Math.random()*5);
+ 		else
+ 			y-=(int)(Math.random()*5);
  	}
  	void show(){
- 		fill(col);
- 		ellipse(x, y, 40, 40);
- 		fill(0);
- 		ellipse(x-10, y-7, 8, 8);
- 		ellipse(x+10, y-7, 8, 8);
- 		noFill();
- 		arc(x, y+5, 20, 20, 0.5, PI-0.5);
+ 		ellipse(x , y, 40, 40);
  	}
- }    
+}
